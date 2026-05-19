@@ -4,24 +4,21 @@ REST API do zarządzania flotą pojazdów, zbudowane na .NET 10, FastEndpoints i
 
 ## Stack
 
-- **.NET 10** + **FastEndpoints 8.1** - routing i walidacja
-- **EF Core** - InMemory (docelowo PostgreSQL)
-- **Docker** + **docker-compose** - domyślny punkt startowy rozwiązania
+- .NET 10 + FastEndpoints 8.1 - routing i walidacja
+- EF Core - InMemory (docelowo PostgreSQL)
+- Docker + docker-compose - domyślny punkt startowy rozwiązania
 
 ## Architektura
 
 Rozwiązanie jest podzielone na 4 warstwy zgodnie z Clean Architecture:
 
-"""
 FleetApi.Domain          ← encje, value objects, wyjątki domenowe
 FleetApi.Application     ← serwisy, interfejsy repozytoriów, DTO
 FleetApi.Infrastructure  ← EF Core, repozytoria
 FleetApi.Api             ← endpointy, walidatory, middleware
-"""
 
 Każdy endpoint ma własny folder z request, validatorem i endpointem w jednym miejscu:
 
-"""
 Endpoints/Trucks/
   CreateTruck/   → CreateTruckEndpoint, CreateTruckValidator, CreateTruckRequest
   GetTruck/      → GetTruckEndpoint
@@ -29,7 +26,6 @@ Endpoints/Trucks/
   UpdateTruck/   → UpdateTruckEndpoint, UpdateTruckValidator, UpdateTruckRequest
   UpdateTruckStatus/ → UpdateTruckStatusEndpoint, UpdateTruckStatusValidator, UpdateTruckStatusRequest
   DeleteTruck/   → DeleteTruckEndpoint
-"""
 
 ## Dlaczego nie MediatR?
 
