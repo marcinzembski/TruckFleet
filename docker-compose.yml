@@ -1,0 +1,6 @@
+﻿services:
+  fleetapi.api:
+    image: ${DOCKER_REGISTRY-}fleetapi
+    build:
+      context: .
+      dockerfile: src/FleetApi.Api/Dockerfile

@@ -1,0 +1,53 @@
+@FleetApi.Api_HostAddress = http://localhost:8080
+
+### Create truck
+POST {{FleetApi.Api_HostAddress}}/api/trucks
+Content-Type: application/json
+
+{
+  "code": "TRK001",
+  "name": "Truck Alpha",
+  "status": "OutOfService",
+  "description": "Main delivery truck"
+}
+
+###
+
+### Get truck by ID
+GET {{FleetApi.Api_HostAddress}}/api/trucks/{{truckId}}
+Accept: application/json
+
+###
+
+### List trucks
+GET {{FleetApi.Api_HostAddress}}/api/trucks?page=1&pageSize=20&sortBy=name&sortDir=asc
+Accept: application/json
+
+###
+
+### Update truck
+PATCH {{FleetApi.Api_HostAddress}}/api/trucks/{{truckId}}
+Content-Type: application/json
+
+{
+  "code": "TRK001",
+  "name": "Truck Alpha Updated",
+  "description": "Updated description"
+}
+
+###
+
+### Change truck status
+PATCH {{FleetApi.Api_HostAddress}}/api/trucks/{{truckId}}/status
+Content-Type: application/json
+
+{
+  "status": "Loading"
+}
+
+###
+
+### Delete truck
+DELETE {{FleetApi.Api_HostAddress}}/api/trucks/{{truckId}}
+
+###

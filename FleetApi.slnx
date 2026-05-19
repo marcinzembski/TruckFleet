@@ -1,0 +1,11 @@
+﻿<Solution>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+  <Folder Name="/src/">
+    <Project Path="src/FleetApi.Api/FleetApi.Api.csproj" />
+    <Project Path="src/FleetApi.Application/FleetApi.Application.csproj" />
+    <Project Path="src/FleetApi.Domain/FleetApi.Domain.csproj" />
+    <Project Path="src/FleetApi.Infrastructure/FleetApi.Infrastructure.csproj" />
+  </Folder>
+</Solution>
